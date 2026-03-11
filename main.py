@@ -1,6 +1,7 @@
 import json
 import os
 
+# metodo para permitir encontrar o arquivo json dentro da pasta do projeto, idependente do sistema operacional.
 LOG_JSON = os.path.join('log.json') 
 
 title = "////|Calculadora de dois numeros|////"
@@ -30,7 +31,7 @@ def json_log(a, b, opreracao, resultado): # função para salvar e abrir aquivo 
 
     except Exception as e:
 
-        raise Exception(e)
+        print(f"Error: {e}")
 
 
 
@@ -97,7 +98,7 @@ while True:
 
         b = int(input("Digite o segundo número\n> "))
 
-    except ValueError as e:
+    except ValueError as e: # impede de o programa travar caso uma string ou float seja inserido
 
         print("Valor invalido! Digite somente numeros inteiros!\nTente novamente.\n")
 
@@ -107,6 +108,7 @@ while True:
     opr = input("Defina a operação ('soma', 'subtracao', 'multiplicacao', 'divisao')\n> ")
 
     try:
+        
         resultado = operacao(a=a, b=b, row_opr=opr)
 
         if resultado == None:
@@ -114,7 +116,7 @@ while True:
 
             continue
 
-    except Exception as e:
+    except Exception as e: # Caso algum erro não previsto aconteça, exibe uma mensagem de erro sem travar o programa
 
         print(f"Error: {e}")
 
