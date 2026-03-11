@@ -70,7 +70,7 @@ def operacao(a, b, row_opr:str): # função para definir qual a operação, e ca
 
     elif opr == 'divisao':
 
-        result = a / b
+        result = a // b
 
         print(f"{a} ÷ {b} = {result}\n")
 
